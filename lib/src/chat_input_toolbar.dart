@@ -166,8 +166,6 @@ class ChatInputToolbar extends StatelessWidget {
 
       onTextChange("");
 
-      FocusScope.of(context).requestFocus(focusNode);
-
       Timer(Duration(milliseconds: 150), () {
         scrollController.animateTo(
           reverse ? 0.0 : scrollController.position.maxScrollExtent + 30.0,
