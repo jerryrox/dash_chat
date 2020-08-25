@@ -109,6 +109,8 @@ class DashChat extends StatefulWidget {
   /// is long pressed
   final Function(ChatUser) onLongPressAvatar;
 
+  final Function(ChatMessage) onPressMessage;
+
   /// [onLongPressMessage] function takea a function with this structure
   /// [Function(ChatMessage)] will trigger when the message
   /// is long pressed.
@@ -329,6 +331,7 @@ class DashChat extends StatefulWidget {
     @required this.user,
     @required this.onSend,
     this.onLongPressAvatar,
+    this.onPressMessage,
     this.onLongPressMessage,
     this.onPressAvatar,
     this.avatarBuilder,
@@ -492,6 +495,7 @@ class DashChatState extends State<DashChat> {
                     showAvatarForEverMessage: widget.showAvatarForEveryMessage,
                     onLongPressAvatar: widget.onLongPressAvatar,
                     onPressAvatar: widget.onPressAvatar,
+                    onPressMessage: widget.onPressMessage,
                     onLongPressMessage: widget.onLongPressMessage,
                     avatarBuilder: widget.avatarBuilder,
                     messageBuilder: widget.messageBuilder,

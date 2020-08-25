@@ -10,6 +10,7 @@ class MessageListView extends StatefulWidget {
   final Function(ChatUser) onPressAvatar;
   final Function(ChatUser) onLongPressAvatar;
   final bool renderAvatarOnTop;
+  final Function(ChatMessage) onPressMessage;
   final Function(ChatMessage) onLongPressMessage;
   final bool inverted;
   final Widget Function(ChatUser) avatarBuilder;
@@ -57,6 +58,7 @@ class MessageListView extends StatefulWidget {
       this.showAvatarForEverMessage,
       this.inverted,
       this.onLongPressAvatar,
+      this.onPressMessage,
       this.onLongPressMessage,
       this.onPressAvatar,
       this.renderAvatarOnTop,
@@ -220,6 +222,11 @@ class _MessageListViewState extends State<MessageListView> {
                                 ),
                                 Expanded(
                                   child: GestureDetector(
+                                    onTap: () {
+                                      if(widget.onPressMessage != null) {
+                                        widget.onPressMessage(widget.messages[i]);
+                                      }
+                                    },
                                     onLongPress: () {
                                       if (widget.onLongPressMessage != null) {
                                         widget.onLongPressMessage(
