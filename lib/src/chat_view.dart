@@ -29,6 +29,10 @@ class DashChat extends StatefulWidget {
   /// If provided, this focus node will be used for the text input.
   final FocusNode focusNode;
 
+  /// Whether textinput should be focused on pressing the send button.
+  /// Default: [true]
+  final bool focusOnSend;
+
   /// Use to change the direction of the text ltr is used for
   /// launguages that start from left like English &
   /// rtl is used for languages like Arabic
@@ -322,6 +326,7 @@ class DashChat extends StatefulWidget {
     this.inputDisabled = false,
     this.textController,
     this.focusNode,
+    this.focusOnSend = true,
     this.inputDecoration,
     this.textCapitalization = TextCapitalization.none,
     this.alwaysShowSend = false,
@@ -581,6 +586,7 @@ class DashChatState extends State<DashChat> {
                             ? widget.scrollController
                             : scrollController,
                         focusNode: inputFocusNode,
+                        focusOnSend: widget.focusOnSend,
                         reverse: widget.inverted)
                 ],
               ),

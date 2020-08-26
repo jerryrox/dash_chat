@@ -25,6 +25,7 @@ class ChatInputToolbar extends StatelessWidget {
   final ScrollController scrollController;
   final bool showTraillingBeforeSend;
   final FocusNode focusNode;
+  final bool focusOnSend;
   final EdgeInsets inputToolbarPadding;
   final EdgeInsets inputToolbarMargin;
   final TextDirection textDirection;
@@ -36,6 +37,7 @@ class ChatInputToolbar extends StatelessWidget {
     Key key,
     this.textDirection = TextDirection.ltr,
     this.focusNode,
+    this.focusOnSend = true,
     this.scrollController,
     this.text,
     this.textInputAction,
@@ -165,6 +167,10 @@ class ChatInputToolbar extends StatelessWidget {
       controller.text = "";
 
       onTextChange("");
+
+      if(focusOnSend) {
+        focusNode.requestFocus();
+      }
 
       Timer(Duration(milliseconds: 150), () {
         scrollController.animateTo(
