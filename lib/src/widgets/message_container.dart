@@ -188,6 +188,17 @@ class MessageContainer extends StatelessWidget {
   }
 
   Widget _buildMessageImage() {
+    if (message.cachedImage != null) {
+      return Padding(
+        padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+        child: Image.file(
+          message.cachedImage,
+          height: constraints.maxHeight * 0.3,
+          width: constraints.maxWidth * 0.7,
+          fit: BoxFit.contain,
+        ),
+      );
+    }
     if (message.image != null) {
       if (messageImageBuilder != null)
         return messageImageBuilder(message.image, message);

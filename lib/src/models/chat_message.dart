@@ -21,6 +21,8 @@ class ChatMessage {
   /// users and also provide avaatar URLs and name.
   ChatUser user;
 
+  File cachedImage;
+
   /// A [non-optional] parameter which is used to display images
   /// takes a [Sring] as a url
   String image;
@@ -45,6 +47,7 @@ class ChatMessage {
     String id,
     @required this.text,
     @required this.user,
+    this.cachedImage,
     this.image,
     this.video,
     this.quickReplies,
